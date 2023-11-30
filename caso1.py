@@ -1,4 +1,4 @@
-
+#v1
 
 lineas = []
 def cargar_laberinto(nombre_archivo):
