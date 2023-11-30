@@ -1,0 +1,12 @@
+marcar cada espacio
+arriba, abajo, derecha, izquierda 
+
+si existe muro abajo, ir a derecha, si existe muro abajo ir a derecha, si existe muro a derecha ir a izquierda
+
+
+verificar en cada (0,0) si existe un muro en todas las direcciones, si no es asi, dar un paso en el lugar libre 
+
+¿como puedo verificar si existe existe un muro en todas direcciones para marcar donde ir?
+
+
+quiero verifica solo si existe muro abajo, si es asi, que marque DE hasta que no marque muro abajo, 
