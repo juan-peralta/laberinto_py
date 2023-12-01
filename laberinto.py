@@ -78,11 +78,7 @@ def recuperar_camino(lineas):
           
             # Verificar si encuentra '**'
             if lineas[i][j] == '**':
-
-               
-            
-               
-                    movimientos.append((i, j))
+                movimientos.append((i, j))
 
             # Verificar si encuentra 'PP'
             if lineas[i][j] == 'PP':

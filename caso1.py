@@ -68,42 +68,49 @@ def recuperar_camino(lineas):
   
     movimientos = ["Entrada"]  # Lista que almacenará las coordenadas de los movimientos encontrados
     salida_alcanzada = False  # Indica si se ha encontrado la salida del laberinto
-    portal_encontrado = False  # Indica si se ha encontrado un portal en la iteración actual
-    portal_anterior = False  # Indica si se ha encontrado un portal en la iteración anterior
+
+    direcciones = ["Entrada","Salida","AR","AB","DE", "IZ","PP"]
+   
     # Iteración sobre las filas de la matriz de líneas
-    for i in range(len(lineas)):
+    for fila in range(len(lineas)):
         # Iteración sobre las columnas en cada fila
-        for j in range(len(lineas[i])):
+        for columna in range(len(lineas[fila])):
 
           
           # Verificar si encuentra 'PP'
-            if lineas[i][j] == 'PP':
-                movimientos.append((i,j))
-                portal_encontrado = True   
+            if lineas[fila][columna] == 'PP':
+                movimientos.append((fila,columna))
+              
             # Verificar si encuentra '**'
-            if lineas[i][j] == '**':
-                if not portal_anterior:
-                    movimientos.append((i,j))
+            if lineas[fila][columna] == '**':
+                
+                    movimientos.append((fila,columna))
                 
        
                    
                     
             # Verificar si encuentra '..'
-            if lineas[i][j] == '..':
-                if  not portal_anterior:
-                    movimientos.append((i,j))
+            if lineas[fila][columna] == '..':
+                    movimientos.append((fila,columna))
+                    if fila + 1 < len(lineas) and lineas[fila + 1][columna] == '##':
+                        movimientos.append(direcciones[5])
+                    if fila - 1 < len(lineas) and lineas[fila -1 ][columna] == '##':
+                        movimientos.append(direcciones[4])
+             
+                        
+
             
+                         
             
             
             # Verificar si encuentra la salida 'SS'
-            if lineas[i][j] == 'SS':
+            if lineas[fila][columna] == 'SS':
                 movimientos.append("SALIDA")  # Agrega la coordenada de la salida
                 salida_alcanzada = True  # Marca que se ha encontrado la salida
                 break  # Detener el bucle interior si se encuentra la salida
          
            
-            portal_anterior = portal_encontrado
-            portal_encontrado = False
+           
           
         
         if salida_alcanzada:
